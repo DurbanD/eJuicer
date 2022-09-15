@@ -1,0 +1,37 @@
+{
+    "name": "Jungle Juice",
+    "mlTotalVolume": "500",
+    "flavors": [
+        {
+            "name": "Ripe Banana",
+            "desiredPercent": "9",
+            "volumeNeededML": 45,
+            "type": "PG"
+        },
+        {
+            "name": "Grape Juice",
+            "desiredPercent": "3",
+            "volumeNeededML": 15,
+            "type": "PG"
+        },
+        {
+            "name": "Kiwi",
+            "desiredPercent": "3",
+            "volumeNeededML": 15,
+            "type": "PG"
+        }
+    ],
+    "nicotineStrengthMGperML": "100",
+    "juiceStrengthMGperML": "2",
+    "mlNicotineVolume": 10,
+    "PG": {
+        "total": 300,
+        "added": 225,
+        "ratio": 60
+    },
+    "VG": {
+        "total": 200,
+        "added": 200,
+        "ratio": 40
+    }
+}
