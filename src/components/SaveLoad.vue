@@ -1,5 +1,5 @@
 <template>
-    <div id="file-io-container">
+    <div id="file-io-container" v-if="mixer.active">
         <SaveButton text="Save" @save_click_notice="handleSaveClick" />
         <!-- <LoadButton text="Load" @load_click_notice="handleLoadClick" /> -->
     </div>
