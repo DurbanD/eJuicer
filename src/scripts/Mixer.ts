@@ -30,9 +30,9 @@ export class Mixer {
     mlTotalVolume: number,
     flavors: Flavor[],
     nicotineMGperML: number,
-    nicotineStrengthMGperML: number,
+    nicotineStrengthUndiluted: number,
   ) {
-    const juice = new Juice(name, mlTotalVolume, flavors, nicotineMGperML, nicotineStrengthMGperML);
+    const juice = new Juice(name, mlTotalVolume, flavors, nicotineMGperML, nicotineStrengthUndiluted);
     this.setActive(juice);
     this.updateFlavorVolumes();
   }
@@ -53,9 +53,9 @@ export class Mixer {
     mlTotalVolume: number,
     flavors: Flavor[],
     nicotineMGperML: number,
-    nicotineStrengthMGperML: number,
+    nicotineStrengthUndiluted: number,
   ) {
-    return new Juice(name, mlTotalVolume, flavors, nicotineMGperML, nicotineStrengthMGperML);
+    return new Juice(name, mlTotalVolume, flavors, nicotineMGperML, nicotineStrengthUndiluted);
   }
 
   updateFlavorVolumes() {

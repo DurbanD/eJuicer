@@ -25,7 +25,7 @@
         <!-- Nicotine Strength -->
         <div class="output-block">
             <p class="output-title">Undiluted Nicotine Strength: </p>
-            <p class="output-data">{{activeMixer.nicotineStrengthMGperML}} mg / ml </p>
+            <p class="output-data">{{activeMixer.nicotineStrengthUndiluted}} mg / ml </p>
         </div>
 
         <!-- Nicotine Volume Required -->
