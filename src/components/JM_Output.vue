@@ -10,7 +10,7 @@
         <!-- Juice Total Volume -->
         <div class="output-block">
             <p class="output-title">Total Volume: </p>
-            <p class="output-data">{{activeMixer.mlTotalVolume}} ml</p>
+            <p class="output-data">{{activeMixer.totalVolume}} ml</p>
         </div>
 
         <!-- Juice Flavors -->
@@ -31,7 +31,7 @@
         <!-- Nicotine Volume Required -->
         <div class="output-block">
             <p class="output-title">Undiluted Nicotine Volume: </p>
-            <p class="output-data">{{activeMixer.mlNicotineVolume}} ml </p>
+            <p class="output-data">{{activeMixer.nicotineVolume}} ml </p>
         </div>
 
         <!-- PG/VG -->

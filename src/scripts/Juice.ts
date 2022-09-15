@@ -2,9 +2,9 @@ import { Flavor } from './Flavor';
 
 export interface Juice {
   name: string;
-  mlTotalVolume: number;
+  totalVolume: number;
   flavors: Array<Flavor>;
-  mlNicotineVolume?: number;
+  nicotineVolume?: number;
   nicotineStrengthUndiluted: number;
   juiceStrength: number;
   PG?: { total: number; added: number; ratio:number},
@@ -14,18 +14,18 @@ export interface Juice {
 export class Juice implements Juice {
   constructor(
     name: string,
-    mlTotalVolume: number,
+    totalVolume: number,
     flavors: Array<Flavor>,
     juiceStrength: number,
     nicotineStrengthUndiluted: number,
   ) {
     this.name = name;
-    this.mlTotalVolume = mlTotalVolume;
+    this.totalVolume = totalVolume;
     this.flavors = flavors;
     this.nicotineStrengthUndiluted = nicotineStrengthUndiluted;
     this.juiceStrength = juiceStrength
-    this.mlNicotineVolume = (this.mlTotalVolume * juiceStrength) / nicotineStrengthUndiluted;
-    if (isNaN(this.mlNicotineVolume)) this.mlNicotineVolume = 0
+    this.nicotineVolume = (this.totalVolume * juiceStrength) / nicotineStrengthUndiluted;
+    if (isNaN(this.nicotineVolume)) this.nicotineVolume = 0
     this.updateFlavorVolumes()
   }
 
@@ -49,9 +49,9 @@ export class Juice implements Juice {
       ratio: 100-VG
     }
 
-    vgInfo.total = (VG * 0.01) * this.mlTotalVolume
+    vgInfo.total = (VG * 0.01) * this.totalVolume
     vgInfo.added = vgInfo.total - flavorVG
-    pgInfo.total = this.mlTotalVolume - vgInfo.total
+    pgInfo.total = this.totalVolume - vgInfo.total
     pgInfo.added = pgInfo.total - flavorPG
 
     this.PG = pgInfo
@@ -62,7 +62,7 @@ export class Juice implements Juice {
   updateFlavorVolumes() {
 
     for (const flav of this.flavors) {
-      flav.volume = flav.ratio * 0.01 * this.mlTotalVolume;
+      flav.volume = flav.ratio * 0.01 * this.totalVolume;
     }
     return true;
   }

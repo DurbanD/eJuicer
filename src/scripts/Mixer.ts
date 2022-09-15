@@ -27,12 +27,12 @@ export class Mixer {
 
   newJuice(
     name: string,
-    mlTotalVolume: number,
+    totalVolume: number,
     flavors: Flavor[],
     nicotineMGperML: number,
     nicotineStrengthUndiluted: number,
   ) {
-    const juice = new Juice(name, mlTotalVolume, flavors, nicotineMGperML, nicotineStrengthUndiluted);
+    const juice = new Juice(name, totalVolume, flavors, nicotineMGperML, nicotineStrengthUndiluted);
     this.setActive(juice);
     this.updateFlavorVolumes();
   }
@@ -50,19 +50,19 @@ export class Mixer {
 
   createJuice(
     name: string,
-    mlTotalVolume: number,
+    totalVolume: number,
     flavors: Flavor[],
     nicotineMGperML: number,
     nicotineStrengthUndiluted: number,
   ) {
-    return new Juice(name, mlTotalVolume, flavors, nicotineMGperML, nicotineStrengthUndiluted);
+    return new Juice(name, totalVolume, flavors, nicotineMGperML, nicotineStrengthUndiluted);
   }
 
   updateFlavorVolumes() {
     if (this.active === null) return false;
 
     for (const flav of this.active.flavors) {
-      flav.volume = flav.ratio * 0.01 * this.active.mlTotalVolume;
+      flav.volume = flav.ratio * 0.01 * this.active.totalVolume;
     }
     return true;
   }
