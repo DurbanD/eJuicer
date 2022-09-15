@@ -19,7 +19,7 @@
         <!-- Juice Strength -->
         <div class="output-block">
             <p class="output-title">Juice Strength: </p>
-            <p class="output-data">{{activeMixer.juiceStrengthMGperML}} mg / ml</p>
+            <p class="output-data">{{activeMixer.juiceStrength}} mg / ml</p>
         </div>
 
         <!-- Nicotine Strength -->

@@ -5,9 +5,8 @@ export interface Juice {
   mlTotalVolume: number;
   flavors: Array<Flavor>;
   mlNicotineVolume?: number;
-  nicotineMGperML: number;
   nicotineStrengthMGperML: number;
-  juiceStrengthMGperML: number;
+  juiceStrength: number;
   PG?: { total: number; added: number; ratio:number},
   VG?: { total: number; added: number; ratio:number}
 }
@@ -17,15 +16,15 @@ export class Juice implements Juice {
     name: string,
     mlTotalVolume: number,
     flavors: Array<Flavor>,
-    nicotineMGperML: number,
+    juiceStrength: number,
     nicotineStrengthMGperML: number,
   ) {
     this.name = name;
     this.mlTotalVolume = mlTotalVolume;
     this.flavors = flavors;
     this.nicotineStrengthMGperML = nicotineStrengthMGperML;
-    this.juiceStrengthMGperML = nicotineMGperML
-    this.mlNicotineVolume = (this.mlTotalVolume * nicotineMGperML) / nicotineStrengthMGperML;
+    this.juiceStrength = juiceStrength
+    this.mlNicotineVolume = (this.mlTotalVolume * juiceStrength) / nicotineStrengthMGperML;
     if (isNaN(this.mlNicotineVolume)) this.mlNicotineVolume = 0
     this.updateFlavorVolumes()
   }
