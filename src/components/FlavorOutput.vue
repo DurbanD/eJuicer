@@ -22,8 +22,8 @@
                     <p class="output-flavor-data">{{flavor.type}}</p>
                 </div>
 
-                <div class="flavor-output-subcontainer" v-if="flavor.volumeNeededML !== undefined">
-                    <p class="output-flavor-data">{{flavor.volumeNeededML}}ml</p>
+                <div class="flavor-output-subcontainer" v-if="flavor.volume !== undefined">
+                    <p class="output-flavor-data">{{flavor.volume}}ml</p>
                 </div>
 
             </div>
@@ -164,7 +164,7 @@ import { Component, Vue } from 'vue-property-decorator';
     computed: {
         flavorVolumeTotal() {
             let total = 0
-            for (let flavor of this.$props.flavors) total += flavor.volumeNeededML
+            for (let flavor of this.$props.flavors) total += flavor.volume
             return total
         },
         flavorRatioTotal() {

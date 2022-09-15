@@ -35,8 +35,8 @@ export class Juice implements Juice {
     let flavorVG = 0,
       flavorPG = 0
     for (const flavor of this.flavors) {
-      if (flavor.type === 'PG' && flavor.volumeNeededML) flavorPG += flavor.volumeNeededML
-      if (flavor.type === 'VG' && flavor.volumeNeededML) flavorVG += flavor.volumeNeededML
+      if (flavor.type === 'PG' && flavor.volume) flavorPG += flavor.volume
+      if (flavor.type === 'VG' && flavor.volume) flavorVG += flavor.volume
     }
 
     const vgInfo = {
@@ -63,7 +63,7 @@ export class Juice implements Juice {
   updateFlavorVolumes() {
 
     for (const flav of this.flavors) {
-      flav.volumeNeededML = flav.ratio * 0.01 * this.mlTotalVolume;
+      flav.volume = flav.ratio * 0.01 * this.mlTotalVolume;
     }
     return true;
   }

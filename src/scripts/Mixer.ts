@@ -62,7 +62,7 @@ export class Mixer {
     if (this.active === null) return false;
 
     for (const flav of this.active.flavors) {
-      flav.volumeNeededML = flav.ratio * 0.01 * this.active.mlTotalVolume;
+      flav.volume = flav.ratio * 0.01 * this.active.mlTotalVolume;
     }
     return true;
   }
