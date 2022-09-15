@@ -11,7 +11,7 @@
             <!-- Total Volume -->
             <div class="form-block">
               <label for="juice-volume">Total Volume (ml)</label>
-              <input type="text" name="juice-strength" class="form-input number-input" v-model="formData.totalVolume">
+              <input type="text" name="juice-strength" :class="`form-input number-input ${!totalVolumeIsNumber ? 'invalid' : ''}`" v-model="formData.totalVolume">
             </div>
     
             <!-- Juice Flavors -->
@@ -22,13 +22,13 @@
             <!-- Juice Strength -->
             <div class="form-block">
               <label for="juice-strength">Desired Juice Nicotine Strength (mg per ml)</label>
-              <input type="text" name="juice-strength" class="form-input number-input" v-model="formData.juiceStrength">
+              <input type="text" name="juice-strength" :class="`form-input number-input ${!juiceStrengthIsNumber ? 'invalid' : ''}`" v-model="formData.juiceStrength" >
             </div>
     
             <!-- Nicotine Strength -->
             <div class="form-block">
               <label for="nic-strength">Potency of Undiluted Nicotine (mg per ml)</label>
-              <input type="text" name="nic-strength" class="form-input number-input" v-model="formData.nicotineStrength">
+              <input type="text" name="nic-strength" :class="`form-input number-input ${!nicotineStrengthIsNumber ? 'invalid' : ''}`" v-model="formData.nicotineStrength">
             </div>
     
             <!-- VG/PG Ratio -->
@@ -43,6 +43,10 @@
 </template>
   
 <style scoped>
+
+.invalid {
+    border: 2px solid red !important;
+}
 #juicemixer-input {
     margin: 1rem;
     padding: 0;
@@ -118,11 +122,11 @@ import FlavorSelector from './FlavorSelector.vue';
             formData: {
                 name:'',
                 flavors: [],
-                juiceStrength: 0,
-                nicotineStrength: 0,
+                juiceStrength: '0',
+                nicotineStrength: '0',
                 VG: 50,
                 PG: 50,
-                totalVolume: 0,
+                totalVolume: '0',
                 submitted: false
             }
         }
@@ -136,7 +140,15 @@ import FlavorSelector from './FlavorSelector.vue';
         }, 
         handleSubmitClick(event){
             this.$data.formData.submitted = true
-            this.$emit('input_update', this.$data.formData)
+            let formValidated = this.formIsValidated
+            
+            if (formValidated) { 
+                event.target.classList.remove('invalid')
+                this.$emit('input_update', this.$data.formData)
+            }
+            else event.target.classList.add('invalid')
+            
+            
         },
         handleRatioUpdate(updatedVal) {
             this.$data.formData.VG = parseInt(updatedVal)
@@ -147,6 +159,33 @@ import FlavorSelector from './FlavorSelector.vue';
         }
     },
     computed: {
+        juiceStrengthIsNumber() {
+            if (isNaN(parseInt(this.$data.formData.juiceStrength))) return false
+            return true
+        },
+        nicotineStrengthIsNumber() {
+            if (isNaN(parseInt(this.$data.formData.nicotineStrength))) return false
+            return true
+        },
+        totalVolumeIsNumber() {
+            if (isNaN(parseInt(this.$data.formData.totalVolume))) return false
+            return true
+        },
+        flavorsAreValidated() {
+            for (let flavor of this.$data.formData.flavors) {
+                if (isNaN(parseInt(flavor.ratio))) return false
+            }
+            return true
+        },
+        formIsValidated(){
+            let formValidated = true
+            if (!this.juiceStrengthIsNumber) formValidated = false
+            if (!this.nicotineStrengthIsNumber) formValidated = false
+            if (!this.totalVolumeIsNumber) formValidated = false
+            if (!this.flavorsAreValidated) formValidated = false
+
+            return formValidated
+        }
     },
     watch: {
     }

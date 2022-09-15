@@ -106,11 +106,11 @@ const JuiceMix = new Mixer('Mixer1');
       const mixer = this.$data.mixer,
       name = data.name,        
       totalVolume = data.totalVolume,
-      flavors = data.flavors.map((F:any)=>mixer.createFlavor(F.name, F.percent, F.type)),
+      flavors = data.flavors.map((F:any)=>mixer.createFlavor(F.name, parseInt(F.percent), F.type)),
       juiceStrength = data.juiceStrength,
       nicotineStrength = data.nicotineStrength
 
-      let juice = mixer.createJuice(name, totalVolume, flavors, juiceStrength, nicotineStrength)
+      let juice = mixer.createJuice(name, parseInt(totalVolume), flavors, parseInt(juiceStrength), parseInt(nicotineStrength))
       juice.setRatio(data.VG)
 
       mixer.setActive(juice)

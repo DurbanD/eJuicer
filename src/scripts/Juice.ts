@@ -26,6 +26,7 @@ export class Juice implements Juice {
     this.juiceStrength = juiceStrength
     this.nicotineVolume = (this.totalVolume * juiceStrength) / nicotineStrengthUndiluted;
     if (isNaN(this.nicotineVolume)) this.nicotineVolume = 0
+    
     this.updateFlavorVolumes()
   }
 

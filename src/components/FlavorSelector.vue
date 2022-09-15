@@ -17,7 +17,7 @@
 
                 <div class="flavor_input_container ratio-input-container">
                     <label :for="`flavor_percent_${n}`">Ratio</label>
-                    <input type="text" :name="`flavor_percent_${n}`" class="flavor_input ratio-input" v-model="flavors[n-1].percent" @change="handleFlavorUpdate">
+                    <input type="text" :name="`flavor_percent_${n}`" :class="`flavor_input ratio-input ${isNaN(parseInt(flavors[n-1].percent)) ? 'invalid-input' : ''}`" v-model="flavors[n-1].percent" @change="handleFlavorUpdate">
                 </div>
 
                 <div class="flavor_input_container flavor_type_selector">
@@ -45,7 +45,9 @@
 * {
     box-sizing: border-box;
 }
-
+.invalid-input {
+    border: 1px solid red;
+}
 #flavor-select-container {
     width: 100%;
     display: flex;
@@ -197,7 +199,7 @@ import DeleteButton from './DeleteButton.vue';
     },
     methods: {
         increaseFlavorCount(event) {
-            this.$data.flavors.push({name:'', percent:0, type:'PG'})
+            this.$data.flavors.push({name:'', percent:'0', type:'PG'})
         },
         decreaseFlavorCount(event) {
             this.$data.flavors.pop()
