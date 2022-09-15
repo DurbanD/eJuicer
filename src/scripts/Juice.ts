@@ -63,7 +63,7 @@ export class Juice implements Juice {
   updateFlavorVolumes() {
 
     for (const flav of this.flavors) {
-      flav.volumeNeededML = flav.desiredPercent * 0.01 * this.mlTotalVolume;
+      flav.volumeNeededML = flav.ratio * 0.01 * this.mlTotalVolume;
     }
     return true;
   }

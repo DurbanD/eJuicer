@@ -14,8 +14,8 @@
                     <p class="output-flavor-data">{{flavor.name}}</p>
                 </div>
             
-                <div class="flavor-output-subcontainer" v-if="flavor.desiredPercent !== undefined">
-                    <p class="output-flavor-data">{{flavor.desiredPercent}}%</p>
+                <div class="flavor-output-subcontainer" v-if="flavor.ratio !== undefined">
+                    <p class="output-flavor-data">{{flavor.ratio}}%</p>
                 </div>
 
                 <div class="flavor-output-subcontainer" v-if="flavor.type">
@@ -169,7 +169,7 @@ import { Component, Vue } from 'vue-property-decorator';
         },
         flavorRatioTotal() {
             let total = 0
-            for (let flavor of this.$props.flavors) total += parseInt(flavor.desiredPercent)
+            for (let flavor of this.$props.flavors) total += parseInt(flavor.ratio)
             return total
         }
     },

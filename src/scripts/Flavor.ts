@@ -1,14 +1,14 @@
 export interface Flavor {
   name: string;
-  desiredPercent: number;
+  ratio: number;
   volumeNeededML: number | undefined;
   type: string | undefined
 }
 
 export class Flavor implements Flavor {
-  constructor(name: string, desiredPercent: number, type:string | undefined) {
+  constructor(name: string, ratio: number, type:string | undefined) {
     this.name = name;
-    this.desiredPercent = desiredPercent;
+    this.ratio = ratio;
     this.volumeNeededML = undefined;
     this.type = type
   }

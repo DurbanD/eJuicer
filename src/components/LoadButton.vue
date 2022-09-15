@@ -56,7 +56,7 @@
             event.preventDefault();
             if (!this.$refs.dataLoad) return
             let data = this.$refs.dataLoad.files[0]
-            
+
             this.$emit('load_click_notice', data)
         }
         this.$data.clicked = true
