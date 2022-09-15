@@ -17,8 +17,9 @@
 
     padding: 0;
     margin: 6px 9px;
-    height: 2rem;
-    width: 10%;
+    height: 1.5rem;
+    width: 8%;
+    border-radius: 3px;
   }
 
 </style>

@@ -1,1 +1,37 @@
-{"name":"Jungle Juice","totalVolume":"500","flavors":[{"name":"Ripe Banana","ratio":"9","volume":45,"type":"PG"},{"name":"Grape Juice","ratio":"3","volume":15,"type":"PG"},{"name":"Kiwi","ratio":"3","volume":15,"type":"PG"}],"nicotineStrengthUndiluted":"100","juiceStrength":"2","nicotineVolume":10,"PG":{"total":300,"added":225,"ratio":60},"VG":{"total":200,"added":200,"ratio":40}}
+{
+    "name": "Jungle Juice",
+    "totalVolume": "500",
+    "flavors": [
+        {
+            "name": "Ripe Banana",
+            "ratio": "9",
+            "volume": 45,
+            "type": "PG"
+        },
+        {
+            "name": "Grape Juice",
+            "ratio": "3",
+            "volume": 15,
+            "type": "PG"
+        },
+        {
+            "name": "Kiwi",
+            "ratio": "3",
+            "volume": 15,
+            "type": "PG"
+        }
+    ],
+    "nicotineStrengthUndiluted": "100",
+    "juiceStrength": "2",
+    "nicotineVolume": 10,
+    "PG": {
+        "total": 300,
+        "added": 225,
+        "ratio": 60
+    },
+    "VG": {
+        "total": 200,
+        "added": 200,
+        "ratio": 40
+    }
+}

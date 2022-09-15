@@ -173,16 +173,29 @@ import FlavorSelector from './FlavorSelector.vue';
         },
         flavorsAreValidated() {
             for (let flavor of this.$data.formData.flavors) {
+                console.log(flavor)
                 if (isNaN(parseInt(flavor.ratio))) return false
             }
             return true
         },
         formIsValidated(){
             let formValidated = true
-            if (!this.juiceStrengthIsNumber) formValidated = false
-            if (!this.nicotineStrengthIsNumber) formValidated = false
-            if (!this.totalVolumeIsNumber) formValidated = false
-            if (!this.flavorsAreValidated) formValidated = false
+            if (!this.juiceStrengthIsNumber) {
+                console.log('Failed to validate Juice Strength')
+                formValidated = false
+            }
+            if (!this.nicotineStrengthIsNumber) {
+                console.log('Failed to validate Nicotine Strength')
+                formValidated = false
+            }
+            if (!this.totalVolumeIsNumber) {
+                console.log('Failed to validate Volume')
+                formValidated = false
+            }
+            if (!this.flavorsAreValidated) {
+                console.log('Failed to validate flavors')
+                formValidated = false
+            }
 
             return formValidated
         }

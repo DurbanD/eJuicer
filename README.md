@@ -6,4 +6,4 @@ This is a tool build as a SPA webpage using Vue/Typescript to accurately and eas
 
 ## Disclaimer
 
-Strictly speaking, nobody should use this except as a curiosity. Smoking is bad for you and nicotine is dangerous. I am not responsible for anything that happens if this is used to make anything by anyone other than myself.
+Strictly speaking, nobody should use this except as a curiosity. Smoking is bad for you and nicotine is dangerous. I am not responsible for anything that happens if this is used to make anything by anyone.

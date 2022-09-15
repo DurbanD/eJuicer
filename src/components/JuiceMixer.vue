@@ -1,13 +1,9 @@
 <template>
   <div id="juicemixer_main">
+    <!-- HEAD -->
     <div id="juicemixer-head">
       <BinarySelector :types="['input', 'output']" select_for="display" :default="display" @binary_select="handleDisplaySelection" />
-      <!-- <div id="save-load-container">
-        <SaveButton :mixer="mixer" v-if="formData.submitted" />
-        <LoadButton />
-      </div> -->
       <SaveLoad :mixer="mixer" />
-      
     </div>
     
 
@@ -17,8 +13,8 @@
     </div>
     
     <!-- Juice Mixer Main Output -->
-    <div id="juicemixer-output-container" v-if="formData.submitted && display === 'output'">
-      <JM_Output :activeMixer="mixer.active" />
+    <div id="juicemixer-output-container" v-if="display === 'output'">
+      <JM_Output :activeMixer="mixer.active" v-if="mixer.active" />
     </div>
 
   </div>
@@ -106,7 +102,7 @@ const JuiceMix = new Mixer('Mixer1');
       const mixer = this.$data.mixer,
       name = data.name,        
       totalVolume = data.totalVolume,
-      flavors = data.flavors.map((F:any)=>mixer.createFlavor(F.name, parseInt(F.percent), F.type)),
+      flavors = data.flavors.map((F:any)=>mixer.createFlavor(F.name, parseInt(F.ratio), F.type)),
       juiceStrength = data.juiceStrength,
       nicotineStrength = data.nicotineStrength
 
@@ -114,8 +110,6 @@ const JuiceMix = new Mixer('Mixer1');
       juice.setRatio(data.VG)
 
       mixer.setActive(juice)
-
-      console.log(mixer.getJSON())
 
       this.$data.display = 'output'
     },

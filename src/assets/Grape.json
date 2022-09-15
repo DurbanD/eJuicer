@@ -1,0 +1,25 @@
+{
+    "name": "Grape",
+    "totalVolume": 120,
+    "flavors": [
+        {
+            "name": "Grape Juice",
+            "ratio": 15,
+            "volume": 18,
+            "type": "PG"
+        }
+    ],
+    "nicotineStrengthUndiluted": 100,
+    "juiceStrength": 3,
+    "nicotineVolume": 3.6,
+    "PG": {
+        "total": 48,
+        "added": 30,
+        "ratio": 40
+    },
+    "VG": {
+        "total": 72,
+        "added": 72,
+        "ratio": 60
+    }
+}
