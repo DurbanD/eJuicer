@@ -13,7 +13,7 @@
     align-items: center;
 
     height: 100%;
-    width: 50%;
+    width: 100%;
   }
 
   #save-btn {
@@ -22,6 +22,7 @@
     align-content: center;
     align-items: center;
     justify-content: center;
+    text-align: center;
 
     height: 100%;
     width: 100%;
@@ -37,27 +38,6 @@
     props: ['text'],
     methods: {
       handleClick(event) {
-      //   function download(data:any, filename:string, type:string) {
-      //     const file = new Blob([data], {type: type}),
-      //       a = document.createElement("a"),
-      //       url = URL.createObjectURL(file);
-          
-      //     a.href = url;
-      //     a.download = filename;
-      //     document.body.appendChild(a);
-      //     a.click();
-
-      //     setTimeout(function() {
-      //       document.body.removeChild(a);
-      //       window.URL.revokeObjectURL(url);  
-      //     }, 0); 
-      //   }
-
-      //   let jsonData = this.$props.mixer.getJSON(),
-      //     name = `${this.$props.mixer.active.name}.txt`,
-      //     type = 'text/plain'
-      //   return download(jsonData, name, type)
-      // }
         this.$emit('save_click_notice')
       }
     }

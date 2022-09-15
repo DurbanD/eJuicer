@@ -1,7 +1,7 @@
 <template>
     <div id="file-io-container">
         <SaveButton text="Save" @save_click_notice="handleSaveClick" />
-        <LoadButton text="Load" @load_click_notice="handleLoadClick" />
+        <!-- <LoadButton text="Load" @load_click_notice="handleLoadClick" /> -->
     </div>
 </template>
 
@@ -16,9 +16,9 @@
     background: rgba(240,240,250,0.8);
 
     padding: 0;
-    margin: 0;
+    margin: 6px 9px;
     height: 2rem;
-    width: 30%;
+    width: 10%;
   }
 
 </style>

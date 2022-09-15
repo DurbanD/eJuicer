@@ -17,7 +17,7 @@
     cursor: pointer;
     width: 100px;
     padding: 0;
-    margin: 0.5rem;
+    margin: 6px 9px;
 }
 
 #type_select_container:hover {
